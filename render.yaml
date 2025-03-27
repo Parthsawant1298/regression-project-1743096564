@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: regression-service
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run load_model.py --server.port=$PORT --server.address=0.0.0.0
+    repo: https://github.com/Parthsawant1298/regression-project-1743096564.git
+    branch: main
+    plan: free
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.7
+      - key: MODEL_FILE
+        value: best_model.pkl
